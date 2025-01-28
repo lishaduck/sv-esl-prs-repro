@@ -6,7 +6,6 @@ import svelte from 'eslint-plugin-svelte';
 import globals from 'globals';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript-eslint';
-import * as tsExtra from 'typescript-eslint-parser-for-extra-files';
 const gitignorePath = fileURLToPath(new URL('./.gitignore', import.meta.url));
 
 export default ts.config(
@@ -29,7 +28,7 @@ export default ts.config(
 		languageOptions: {
 			parserOptions: {
 				extraFileExtensions: ['.svelte'],
-				parser: tsExtra,
+				parser: ts.parser,
 				project: './tsconfig.json'
 			}
 		},
